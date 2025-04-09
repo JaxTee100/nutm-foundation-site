@@ -2,7 +2,9 @@ import React from 'react'
 
 const Giving = () => {
   return (
-    <div>Giving</div>
+    <section id="giving" className="py-20 px-6 bg-gray-100">
+      Giving Section here
+    </section>
   )
 }
 

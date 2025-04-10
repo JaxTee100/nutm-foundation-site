@@ -1,7 +1,9 @@
 "use client";
 
+import Image from "next/image";
 import { useEffect, useState } from "react";
 import { Link as LinkScroll, scroller } from "react-scroll";
+import Logo from '../assets/logo.jpg'
 
 const menuItems = [
   { id: "hero", label: "Home" },
@@ -62,10 +64,7 @@ export default function Navbar() {
           {/* Logo */}
           <div className="col-start-1 col-end-2 flex items-center">
             <div className="cursor-pointer flex gap-2 font-bold items-center text-xl text-green-700">
-              <div className="w-[40px] h-[40px] flex justify-center items-center p-3 rounded-[8px] bg-green-700">
-                <span className="text-white text-xl font-bold">F</span>
-              </div>
-              Foundation
+              <Image src={Logo} alt='nutm-logo' width={200} height={200}/>
             </div>
           </div>
 

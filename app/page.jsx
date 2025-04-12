@@ -4,7 +4,6 @@ import About from "@/components/About";
 import Impact from "@/components/Impact";
 import Programs from "@/components/Programs";
 import Giving from "@/components/Giving";
-import News from "@/components/News";
 import Team from "@/components/Team";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
@@ -19,7 +18,6 @@ export default function Home() {
             <Impact />
             <Programs />
             <Giving />
-            <News />
             <Team />
             <Contact />
             <Footer />

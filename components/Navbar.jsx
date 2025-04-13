@@ -1,152 +1,172 @@
 "use client";
 
+import { useState } from "react";
 import Image from "next/image";
-import { useEffect, useState } from "react";
-import { Link as LinkScroll, scroller } from "react-scroll";
-import Logo from '../assets/logo.jpg'
-import { motion, AnimatePresence } from "framer-motion";
-import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { Menu, X } from "lucide-react";
+import Logo from "../assets/nutm.png";
+import { AnimatePresence, motion } from "framer-motion";
 
-
-const menuItems = [
-  { id: "hero", label: "Home" },
-  { id: "about", label: "About" },
-  { id: "impact", label: "Impact" },
-  { id: "programs", label: "Programs" },
-  { id: "giving", label: "Giving" },
-  { id: "team", label: "Team" },
-  { id: "contact", label: "Contact" },
+const navItems = [
+  {
+    label: "About",
+    subItems: [
+      { label: "About Us", href: "/about/about-us" },
+      { label: "Leaders", href: "/about/leaders" },
+    ],
+  },
+  {
+    label: "Impact",
+    subItems: [{ label: "Our Impact", href: "/impact" }],
+  },
+  {
+    label: "Programs",
+    subItems: [{ label: "Programs Offered", href: "/programs" }],
+  },
+  {
+    label: "Giving",
+    subItems: [{ label: "Support Us", href: "/giving" }],
+  },
+  {
+    label: "Team",
+    subItems: [{ label: "Our Team", href: "/team" }],
+  },
+  {
+    label: "Contact",
+    subItems: [{ label: "Get in Touch", href: "/contact" }],
+  },
 ];
 
-function CreateMenus({ activeLink, getMenuItems, setActiveLink }) {
-  return getMenuItems.map((item) => (
-    <LinkScroll
-      key={item.id}
-      activeClass="active"
-      to={item.id}
-      spy={true}
-      smooth={true}
-      duration={1200}
-      offset={-80}
-      onSetActive={() => setActiveLink(item.id)}
-      className={`px-4 py-2 mx-2 cursor-pointer transition-all inline-block relative text-lg font-bold
-      ${activeLink === item.id
-          ? "text-green-600 border-b-2 border-green-600"
-          : "text-gray-800 hover:text-green-600"
-        }
-      `}
-    >
-      {item.label}
-    </LinkScroll>
-  ));
-}
-
 export default function Navbar() {
-  const [activeLink, setActiveLink] = useState("home");
-  const [scrollActive, setScrollActive] = useState(false);
-  const [menuOpen, setMenuOpen] = useState(false);
+  const pathname = usePathname();
+  const [hoveredItem, setHoveredItem] = useState(null);
+  const [mobileOpen, setMobileOpen] = useState(false);
+  const [activeDropdown, setActiveDropdown] = useState(null);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrollActive(window.scrollY > 20);
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  const toggleDropdown = (label) => {
+    setActiveDropdown(activeDropdown === label ? null : label);
+  };
 
   return (
-    <>
-      {/* Desktop Navbar */}
-      <motion.header
-        initial={{ y: -80, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.6 }}
-        className={`fixed top-0 w-full z-30 bg-white-500 transition-all ${scrollActive ? "shadow-md pt-0" : "pt-4"
-          }`}
-      >
-        <nav className="max-w-screen-xl px-6 sm:px-8 lg:px-16 mx-auto grid grid-flow-col py-3 sm:py-4">
+    <header className="w-full z-50">
+      {/* Main Nav */}
+      <div className="fixed top-0 left-0 w-full bg-white shadow-md z-50 ">
+        <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
           {/* Logo */}
-          <div className="col-start-1 col-end-2 flex items-center">
-            <div className="cursor-pointer flex gap-2 font-bold items-center text-xl text-green-700">
-              <Image src={Logo} alt='nutm-logo' width={200} height={200} />
-            </div>
+          <Link href="/" className="flex items-center gap-2 ">
+            <Image
+              src={Logo}
+              alt="Logo"
+              width={200}
+              height={200}
+              className="object-contain"
+            />
+          </Link>
+
+          {/* Desktop Nav */}
+          <div
+            className="hidden lg:block relative "
+            onMouseLeave={() => setHoveredItem(null)}
+          >
+            <nav className="flex space-x-6 items-center max-w-screen-xl px-6 sm:px-8 lg:px-16 mx-auto  py-3 sm:py-4 ">
+              {navItems.map((item, index) => (
+                <div
+                  key={index}
+                  className="relative "
+                  onMouseEnter={() => setHoveredItem(item.label)}
+                >
+                  <span
+                    className={`cursor-pointer font-semibold text-gray-800 hover:text-green-600 px-3 py-2  ${pathname.startsWith(item.subItems[0].href)
+                      ? "text-green-600 border-b-2 border-green-600"
+                      : ""
+                      }`}
+                  >
+                    {item.label}
+                  </span>
+                </div>
+              ))}
+            </nav>
           </div>
 
-          {/* Nav Links */}
-          <ul className="hidden lg:flex col-start-4 col-end-8 items-center">
-            <CreateMenus
-              setActiveLink={setActiveLink}
-              activeLink={activeLink}
-              getMenuItems={menuItems}
-            />
-          </ul>
-          {/* Hamburger Menu Icon for Mobile */}
-          {/* <div className="lg:hidden col-span-6 flex justify-end">
-            <button onClick={() => setMenuOpen(true)}>
-              <Bars3Icon className="w-8 h-8 text-green-700" />
-            </button>
-          </div> */}
-
-
-        </nav>
-      </motion.header>
-          {/* Mobile Drawer */}
-      <AnimatePresence>
-        {menuOpen && (
-          <motion.div
-            className="fixed inset-0 z-50 bg-white shadow-lg px-6 py-10 flex flex-col"
-            initial={{ x: "100%" }}
-            animate={{ x: 0 }}
-            exit={{ x: "100%" }}
-            transition={{ duration: 0.4 }}
+          {/* Mobile Toggle */}
+          <button
+            className="lg:hidden text-gray-800 "
+            onClick={() => setMobileOpen(!mobileOpen)}
+            aria-label="Toggle mobile menu"
           >
-            <div className="flex justify-between items-center mb-8">
-              <h2 className="text-2xl font-bold text-green-700">Menu</h2>
-              <button onClick={() => setMenuOpen(false)}>
-                <XMarkIcon className="w-7 h-7 text-gray-800" />
-              </button>
-            </div>
-            <div className="flex flex-col gap-4">
-              <CreateMenus
-                setActiveLink={setActiveLink}
-                activeLink={activeLink}
-                getMenuItems={menuItems}
-                onClickClose={() => setMenuOpen(false)}
-              />
-            </div>
-            <div className="mt-auto pt-10">
-              <button
-                onClick={() => {
-                  setMenuOpen(false);
-                  scroller.scrollTo("contact", {
-                    duration: 800,
-                    delay: 100,
-                    smooth: true,
-                  });
-                }}
-                className="w-full py-3 bg-green-700 text-white font-semibold rounded-lg"
-              >
-                Contact
-              </button>
+            {mobileOpen ? <X size={28} /> : <Menu size={28} />}
+          </button>
+        </div>
+      </div>
+
+      {/* Full-width Hover SubNavbar with Animation */}
+      <AnimatePresence>
+        {hoveredItem && (
+          <motion.div
+            className="hidden lg:flex flex-col items-end  fixed left-0 w-full shadow z-40  mt-3  bg-green-900"
+            style={{ top: "76px" }} // match navbar height
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            transition={{ duration: 0.2 }}
+            onMouseEnter={() => setHoveredItem(hoveredItem)}
+            onMouseLeave={() => setHoveredItem(null)}
+          >
+            <h1 className="m-4 text-3xl">About the Foundation</h1>
+            <div className="max-w-7xl  px-6 py-4 w-1/3 flex justify-center items-end space-x-8  rounded-b-lg  border-t-3  border-green-400">
+
+              {navItems
+                .find((item) => item.label === hoveredItem)
+                ?.subItems.map((sub, idx) => (
+                  <div>
+                    <Link
+                      key={idx}
+                      href={sub.href}
+                      className=" hover:text-green-400  font-semibold text-lg text-white px-4 py-2 transition-all duration-200 rounded-sm hover:border-b-3 pb-2"
+                    >
+                      {sub.label}
+                    </Link>
+                  </div>
+
+                ))}
             </div>
           </motion.div>
         )}
       </AnimatePresence>
 
-      
-
-      {/* Mobile Bottom Navbar */}
-      <nav className="fixed lg:hidden bottom-0 left-0 right-0 z-20 px-4 sm:px-8 shadow-t">
-        <div className="bg-white">
-          <ul className="overflow-x-auto flex w-full justify-between items-center text-gray-800">
-            <CreateMenus
-              setActiveLink={setActiveLink}
-              activeLink={activeLink}
-              getMenuItems={menuItems}
-            />
-          </ul>
+      {/* Mobile Menu */}
+      {mobileOpen && (
+        <div className="lg:hidden bg-white shadow-md px-6 pb-6 pt-2 space-y-4 mt-[76px] ">
+          {navItems.map((item, index) => (
+            <div key={index}>
+              <button
+                className="w-full flex justify-between items-center py-3 font-semibold text-gray-800 "
+                onClick={() => toggleDropdown(item.label)}
+              >
+                {item.label}
+                <span className="text-lg">
+                  {activeDropdown === item.label ? "−" : "+"}
+                </span>
+              </button>
+              {activeDropdown === item.label && (
+                <div className="pl-4 space-y-2">
+                  {item.subItems.map((subItem, subIdx) => (
+                    <Link
+                      key={subIdx}
+                      href={subItem.href}
+                      onClick={() => setMobileOpen(false)}
+                      className="block text-gray-700 hover:text-green-600 text-sm"
+                    >
+                      {subItem.label}
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </div>
+          ))}
         </div>
-      </nav>
-    </>
+      )}
+    </header>
   );
 }

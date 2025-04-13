@@ -9,10 +9,10 @@ const slides = [
     text: "The University Foundation supports students, research, and innovation through higher education.",
   },
   {
-    text: "Strengthening STEM capacity in Africa",
+    text: "Strengthening STEM capacity in Africa.",
   },
   {
-    text: "Promoting equitable opportunities for African youths",
+    text: "Promoting equitable opportunities for African youths.",
   },
 ];
 
@@ -60,9 +60,9 @@ export default function Hero() {
               animate={{ x: 0, opacity: 1 }}
               exit={{ x: "100%", opacity: 0 }}
               transition={{ duration: 2.5 }} // Slower slide duration
-              className="text-4xl md:text-6xl font-bold mb-6"
+              className="text-4xl md:text-6xl font-bold mb-6  text-left tracking-wide leading-tight"
             >
-              <span className="text-green-400">
+              <span className="text-green-400 ">
                 {
                   slides[currentSlide].text
                     .split(" ")
@@ -84,7 +84,7 @@ export default function Hero() {
           {/* Fixed Donate Button */}
           <motion.a
             href="#giving"
-            className="absolute bottom-10  bg-white text-green-700 font-semibold py-4 px-6 rounded-md shadow-lg hover:bg-green-100 transition"
+            className="absolute w-[300px] h-[70px] bottom-10 flex justify-center items-center  bg-white text-green-700 text-lg font-semibold py-4 px-6 rounded-md shadow-lg hover:bg-green-100 transition"
             initial={{ y: 30, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 1.2, duration: 1.5 }}

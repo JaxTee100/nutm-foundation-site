@@ -13,9 +13,9 @@ const navItems = [
     label: "About",
     url: "/about",
     subItems: [
-      { label: "About Us", href: "#about-us" },
-      { label: "Impact", href: "#impact" },
-      { label: "Leaders", href: "#leaders" },
+      { label: "About Us", href: "about#about-us" },
+      { label: "Impact", href: "about#impact" },
+      { label: "Leaders", href: "about#team" },
     ],
   },
   
@@ -27,7 +27,7 @@ const navItems = [
  
   {
     label: "Contact",
-    url: "/about",
+    url: "/contact",
     subItems: [{ label: "Get in Touch", href: "/contact" }],
   },
 ];
@@ -72,7 +72,8 @@ export default function Navbar() {
                 >
                   <Link
                   href={item.url}
-                    className={`cursor-pointer font-semibold text-gray-800 hover:text-green-600 px-3 py-2  ${pathname.startsWith(item.subItems[0].href)
+                    className={`cursor-pointer font-semibold text-gray-800 hover:text-green-600 px-3 py-2  ${
+                      pathname === item.url || pathname.startsWith(item.url)
                       ? "text-green-600 border-b-2 border-green-600"
                       : ""
                       }`}

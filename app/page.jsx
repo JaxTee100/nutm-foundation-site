@@ -13,11 +13,10 @@ export default function Home() {
     return (
         <main className="scroll-smooth">
             <Hero />
-            <About />
-            <Impact />
+            
+            
             <Programs />
             <Giving />
-            <Team />
             <Contact />
             <Footer />
         </main>

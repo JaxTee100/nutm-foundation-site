@@ -6,13 +6,13 @@ const teamMembers = [
   {
     name: "Dr. Amelia Stone",
     role: "Founder & Visionary",
-    image: "/images/team/amelia.jpg",
+    image: "https://www.nutm.edu.ng/donate/wp-content/uploads/2025/01/Abubakar-Suleiman_bw.jpg",
     bio: "Dr. Stone founded the Foundation in 2005 with a mission to create lasting change through education and empowerment.",
   },
   {
     name: "Marcus Oduro",
     role: "Director of Programs",
-    image: "/images/team/marcus.jpg",
+    image: "https://www.nutm.edu.ng/donate/wp-content/uploads/2025/01/Tunde-Hassan-Odukale_bw_600.jpg",
     bio: "Marcus leads our outreach and development strategies, focusing on sustainability and community impact.",
   },
   {

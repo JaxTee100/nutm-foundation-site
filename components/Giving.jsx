@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 // components/Giving.tsx
 export default function Giving() {
   return (
@@ -25,12 +27,13 @@ export default function Giving() {
           </div>
         </div>
 
-        <a
-          href="#contact"
+        <Link
+          href="http://nutm.edu.ng/donate"
+          target="_blank"
           className="mt-10 inline-block bg-green-700 text-white py-3 px-6 rounded-full font-semibold shadow-lg hover:bg-green-800 transition"
         >
           Contact Us to Give
-        </a>
+        </Link>
       </div>
     </section>
   );

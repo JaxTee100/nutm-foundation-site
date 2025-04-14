@@ -11,29 +11,23 @@ import { AnimatePresence, motion } from "framer-motion";
 const navItems = [
   {
     label: "About",
+    url: "/about",
     subItems: [
-      { label: "About Us", href: "/about/about-us" },
-      { label: "Leaders", href: "/about/leaders" },
+      { label: "About Us", href: "#about-us" },
+      { label: "Impact", href: "#impact" },
+      { label: "Leaders", href: "#leaders" },
     ],
   },
-  {
-    label: "Impact",
-    subItems: [{ label: "Our Impact", href: "/impact" }],
-  },
+  
   {
     label: "Programs",
+    url: "/programs",
     subItems: [{ label: "Programs Offered", href: "/programs" }],
   },
-  {
-    label: "Giving",
-    subItems: [{ label: "Support Us", href: "/giving" }],
-  },
-  {
-    label: "Team",
-    subItems: [{ label: "Our Team", href: "/team" }],
-  },
+ 
   {
     label: "Contact",
+    url: "/about",
     subItems: [{ label: "Get in Touch", href: "/contact" }],
   },
 ];
@@ -76,14 +70,15 @@ export default function Navbar() {
                   className="relative "
                   onMouseEnter={() => setHoveredItem(item.label)}
                 >
-                  <span
+                  <Link
+                  href={item.url}
                     className={`cursor-pointer font-semibold text-gray-800 hover:text-green-600 px-3 py-2  ${pathname.startsWith(item.subItems[0].href)
                       ? "text-green-600 border-b-2 border-green-600"
                       : ""
                       }`}
                   >
                     {item.label}
-                  </span>
+                  </Link>
                 </div>
               ))}
             </nav>
@@ -119,7 +114,6 @@ export default function Navbar() {
               {navItems
                 .find((item) => item.label === hoveredItem)
                 ?.subItems.map((sub, idx) => (
-                  <div>
                     <Link
                       key={idx}
                       href={sub.href}
@@ -127,7 +121,6 @@ export default function Navbar() {
                     >
                       {sub.label}
                     </Link>
-                  </div>
 
                 ))}
             </div>

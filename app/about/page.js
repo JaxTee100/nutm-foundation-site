@@ -1,3 +1,6 @@
+import About from '@/components/About'
+import Impact from '@/components/Impact'
+import TeamSection from '@/components/Team'
 import React from 'react'
 
 const page = () => {
@@ -5,7 +8,7 @@ const page = () => {
     <main>
       <About />
       <Impact />
-      <Team />
+      <TeamSection />
     </main>
   )
 }

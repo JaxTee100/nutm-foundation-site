@@ -23,7 +23,7 @@ export default function Footer() {
           </p>
           <p className="text-sm">Email: contact@nutm.edu.ng</p>
           <p className="text-sm">Phone:<br />
-            Office: ‪+1-212-508-9400‬
+            Office: ‪+1-212-508-9400‬<br />
             Administrative: ‪+1-410-251-9210</p>
         </div>
 

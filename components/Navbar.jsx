@@ -130,11 +130,11 @@ export default function Navbar() {
 
       {/* Mobile Menu */}
       {mobileOpen && (
-        <div className="fixed top-0 left-0 right-0 z-50 lg:hidden  bg-white shadow-md px-6 pb-6 pt-2 space-y-4 mt-[76px] max-h-screen overflow-y-auto ">
+        <div className="fixed top-0 left-0 right-0 z-50 lg:hidden bg-green-950 opacity-90  shadow-md px-6 pb-6 pt-2 space-y-4 mt-[72px] max-h-screen overflow-y-auto ">
           {navItems.map((item, index) => (
             <div key={index}>
               <button
-                className="w-full flex justify-between items-center py-3 font-semibold text-gray-800 "
+                className="w-full flex justify-between items-center py-3 font-semibold text-white "
                 onClick={() => toggleDropdown(item.label)}
               >
                 {item.label}

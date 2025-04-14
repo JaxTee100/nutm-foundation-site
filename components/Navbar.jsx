@@ -130,7 +130,7 @@ export default function Navbar() {
 
       {/* Mobile Menu */}
       {mobileOpen && (
-        <div className="lg:hidden bg-white shadow-md px-6 pb-6 pt-2 space-y-4 mt-[76px] ">
+        <div className="fixed top-0 left-0 right-0 z-50 lg:hidden  bg-white shadow-md px-6 pb-6 pt-2 space-y-4 mt-[76px] max-h-screen overflow-y-auto ">
           {navItems.map((item, index) => (
             <div key={index}>
               <button

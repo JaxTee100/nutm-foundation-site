@@ -1,70 +1,93 @@
 "use client";
 
+import { useState } from "react";
+import Image from "next/image";
 import { motion } from "framer-motion";
+import { trustees } from '../app/about/trustees'
 
-const teamMembers = [
-  {
-    name: "Dr. Amelia Stone",
-    role: "Founder & Visionary",
-    image: "https://www.nutm.edu.ng/donate/wp-content/uploads/2025/01/Abubakar-Suleiman_bw.jpg",
-    bio: "Dr. Stone founded the Foundation in 2005 with a mission to create lasting change through education and empowerment.",
-  },
-  {
-    name: "Marcus Oduro",
-    role: "Director of Programs",
-    image: "https://www.nutm.edu.ng/donate/wp-content/uploads/2025/01/Tunde-Hassan-Odukale_bw_600.jpg",
-    bio: "Marcus leads our outreach and development strategies, focusing on sustainability and community impact.",
-  },
-  {
-    name: "Sophia Liang",
-    role: "Head of Communications",
-    image: "/images/team/sophia.jpg",
-    bio: "Sophia handles storytelling, media relations, and ensures our vision reaches the global stage.",
-  },
-  {
-    name: "Kwame Mensah",
-    role: "Chief Operations Officer",
-    image: "/images/team/kwame.jpg",
-    bio: "Kwame ensures smooth daily operations, coordinating logistics and resource allocation for all active programs.",
-  },
-];
 
-export default function TeamSection() {
+export default function TrusteesSection() {
+  const [selectedTrustee, setSelectedTrustee] = useState(null);
+
   return (
-    <section id="team" className="py-20 px-6 bg-green-50">
-      <div className="max-w-screen-xl mx-auto text-center">
-        <motion.h2
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="text-4xl font-bold text-green-800 mb-4"
-        >
-          Meet the Pioneers
-        </motion.h2>
-        <p className="text-gray-600 max-w-2xl mx-auto mb-12">
-          Behind every success story at our Foundation are the people who make it possible. Here's a look at our passionate and dedicated team.
-        </p>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
-          {teamMembers.map((member, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.2, duration: 0.6 }}
-              className="bg-white rounded-xl shadow-lg p-6"
-            >
-              <img
-                src={member.image}
-                alt={member.name}
-                className="w-24 h-24 mx-auto rounded-full object-cover border-4 border-green-200 mb-4"
-              />
-              <h3 className="text-xl font-semibold text-green-700">{member.name}</h3>
-              <p className="text-green-500 font-medium">{member.role}</p>
-              <p className="text-gray-600 mt-2 text-sm">{member.bio}</p>
-            </motion.div>
-          ))}
-        </div>
+    <section className="py-16 px-6 lg:px-20 bg-gray-50">
+      <h2 className="text-3xl font-semibold text-center text-green-800 mb-12">Meet Our Trustees</h2>
+
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 justify-items-center">
+        {trustees.map((trustee) => (
+          <motion.div
+            key={trustee.id}
+            className="text-center cursor-pointer  flex flex-col items-center justify-center"
+            whileHover={{ scale: 1.05 }}
+            onClick={() => setSelectedTrustee(trustee)}
+          >
+            <Image
+              src={trustee.image}
+              alt={trustee.name}
+              width={200}
+              height={200}
+              className="rounded-full object-cover shadow-lg"
+            />
+            <p className="mt-4 text-lg font-semibold text-gray-700">{trustee.name}</p>
+            <p className="mt-2 text-sm font-medium text-gray-700">{trustee.title}</p>
+          </motion.div>
+        ))}
       </div>
+
+      {/* modal */}
+      {selectedTrustee && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black  px-4">
+          <motion.div
+            className="bg-white   max-w-4xl w-full relative shadow-xl h-[100vh] overflow-hidden"
+            initial={{ scale: 0.8, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            transition={{ duration: 0.3 }}
+          >
+            {/* Close Button */}
+            <button
+              onClick={() => setSelectedTrustee(null)}
+              className="absolute top-4 right-4 text-gray-500 hover:text-red-500 text-2xl font-bold z-10 cursor-pointer"
+            >
+              &times;
+            </button>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 h-full">
+              {/* Image Section */}
+              <div className="h-64 md:h-full">
+                <Image
+                  src={selectedTrustee.image}
+                  alt={selectedTrustee.name}
+                  width={600}
+                  height={400}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+
+              {/* Text Section */}
+              <div className="p-6 flex flex-col h-full">
+                {/* Sticky Header */}
+                <div className=" sticky top-0 z-10 pb-2 ">
+                  <h3 className="text-2xl font-semibold text-green-700">{selectedTrustee.name}</h3>
+                  <p className="text-sm text-gray-500">{selectedTrustee.title}</p>
+                </div>
+
+                {/* Scrollable Bio with max height and bottom spacing */}
+                <div
+                  className="overflow-y-auto mt-4 pr-2"
+                  style={{ maxHeight: '60vh', paddingBottom: '1rem' }}
+                >
+                  <p className="text-gray-700 text-sm  leading-relaxed whitespace-pre-line max-w-prose">
+                    {selectedTrustee.bio}
+                  </p>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      )}
+
+
+
     </section>
   );
 }

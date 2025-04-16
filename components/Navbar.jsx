@@ -18,13 +18,13 @@ const navItems = [
       { label: "Leaders", href: "about#team" },
     ],
   },
-  
+
   {
     label: "Programs",
     url: "/programs",
     subItems: [{ label: "Programs Offered", href: "/programs" }],
   },
- 
+
   {
     label: "Contact",
     url: "/contact",
@@ -67,15 +67,16 @@ export default function Navbar() {
               {navItems.map((item, index) => (
                 <div
                   key={index}
-                  className="relative "
-                  onMouseEnter={() => setHoveredItem(item.label)}
+                  className="relative"
+                  onMouseEnter={() => {
+                    if (item.label === "About") setHoveredItem(item.label);
+                  }}
                 >
                   <Link
-                  href={item.url}
-                    className={`cursor-pointer font-semibold text-gray-800 hover:text-green-600 px-3 py-2  ${
-                      pathname === item.url || pathname.startsWith(item.url)
-                      ? "text-green-600 border-b-2 border-green-600"
-                      : ""
+                    href={item.url}
+                    className={`cursor-pointer font-semibold text-gray-800 hover:text-green-600 px-3 py-2 ${pathname === item.url || pathname.startsWith(item.url)
+                        ? "text-green-600 border-b-2 border-green-600"
+                        : ""
                       }`}
                   >
                     {item.label}
@@ -109,19 +110,19 @@ export default function Navbar() {
             onMouseEnter={() => setHoveredItem(hoveredItem)}
             onMouseLeave={() => setHoveredItem(null)}
           >
-            <h1 className="m-4 text-3xl">About the Foundation</h1>
+            <h1 className="text-white text-lg p-2">About the Foundation</h1>
             <div className="max-w-7xl  px-6 py-4 w-1/3 flex justify-center items-end space-x-8  rounded-b-lg  border-t-3  border-green-400">
 
               {navItems
                 .find((item) => item.label === hoveredItem)
                 ?.subItems.map((sub, idx) => (
-                    <Link
-                      key={idx}
-                      href={sub.href}
-                      className=" hover:text-green-400  font-semibold text-lg text-white px-4 py-2 transition-all duration-200 rounded-sm hover:border-b-3 pb-2"
-                    >
-                      {sub.label}
-                    </Link>
+                  <Link
+                    key={idx}
+                    href={sub.href}
+                    className=" hover:text-green-400  font-semibold text-lg text-white px-4 py-2 transition-all duration-200 rounded-xs hover:border-b-3 pb-2"
+                  >
+                    {sub.label}
+                  </Link>
 
                 ))}
             </div>

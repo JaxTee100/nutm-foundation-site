@@ -1,27 +1,52 @@
 // components/Impact.tsx
+'use client';
+
+import { motion } from 'framer-motion';
+
+const impactCards = [
+  {
+    title: '$100k+ in Scholarships',
+    description: 'Supporting students from all over Africa to access a world class education',
+  },
+  {
+    title: '🎓 40+ Students Assisted',
+    description: 'Direct support provided for tuition, housing, and academic resources',
+  },
+  {
+    title: '6 Campus Projects Funded',
+    description: 'Entrepreneurial ventures funded to solve problems across Africa',
+  },
+];
+
 export default function Impact() {
   return (
-    <section id="impact" className="bg-green-100 py-20 px-6 text-green-900">
-      <div className="max-w-6xl mx-auto text-center">
-        <h2 className="text-3xl md:text-4xl font-bold mb-10">Our Impact</h2>
-
-        <div className="grid md:grid-cols-3 gap-8">
-          <div className="bg-white p-6 rounded-xl shadow-md">
-            <h3 className="text-2xl font-semibold mb-2">💸 $2M+ in Scholarships</h3>
-            <p>Supporting students from all walks of life to achieve their academic dreams.</p>
-          </div>
-
-          <div className="bg-white p-6 rounded-xl shadow-md">
-            <h3 className="text-2xl font-semibold mb-2">🎓 1,500+ Students Assisted</h3>
-            <p>Direct support provided for tuition, housing, and academic resources.</p>
-          </div>
-
-          <div className="bg-white p-6 rounded-xl shadow-md">
-            <h3 className="text-2xl font-semibold mb-2">🌱 35+ Campus Projects Funded</h3>
-            <p>From research labs to green spaces, our donors shape the future of our campus.</p>
-          </div>
+    <motion.section
+      id="impact"
+      className="bg-green-50 py-8 md:py-12 px-4 md:px-6 text-green-900"
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8 }}
+      viewport={{ once: true }}
+    >
+      <div className="max-w-6xl mx-auto">
+        <div className="grid md:grid-cols-3 gap-6 md:gap-10">
+          {impactCards.map((card, index) => (
+            <motion.div
+              key={index}
+              className="bg-white p-6 rounded-2xl shadow-md border border-green-100 hover:shadow-lg transition-all duration-300"
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: index * 0.2 + 0.2, duration: 0.7 }}
+              viewport={{ once: true }}
+            >
+              <h3 className="text-xl sm:text-2xl font-semibold mb-2 text-green-800">
+                {card.title}
+              </h3>
+              <p className="text-gray-700 text-sm">{card.description}</p>
+            </motion.div>
+          ))}
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 }

@@ -6,9 +6,9 @@ import React from 'react'
 const page = () => {
   return (
     <main>
-      <About />
+      
       <Impact />
-      <TeamSection />
+      
     </main>
   )
 }

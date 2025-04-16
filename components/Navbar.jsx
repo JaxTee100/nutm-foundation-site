@@ -2,39 +2,39 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
 import Logo from "../assets/nutm.png";
-import { AnimatePresence, motion } from "framer-motion";
+import { Link as ScrollLink } from "react-scroll";
+import NextLink from "next/link";
 
 const navItems = [
   {
-    label: "About",
-    url: "/about",
-    subItems: [
-      { label: "About Us", href: "about#about-us" },
-      { label: "Impact", href: "about#impact" },
-      { label: "Leaders", href: "about#team" },
-    ],
+    label: "Our Mission",
+    to: "mission",
+    offset: -70,
   },
-
+  {
+    label: "Trustees",
+    to: "trustees",
+  },
   {
     label: "Programs",
-    url: "/programs",
-    subItems: [{ label: "Programs Offered", href: "/programs" }],
+    to: "programs",
   },
-
   {
-    label: "Contact",
-    url: "/contact",
-    subItems: [{ label: "Get in Touch", href: "/contact" }],
+    label: "Impact",
+    to: "impact",
+  },
+  {
+    label: "About Us",
+    to: "about",
   },
 ];
 
+
 export default function Navbar() {
   const pathname = usePathname();
-  const [hoveredItem, setHoveredItem] = useState(null);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState(null);
 
@@ -44,51 +44,57 @@ export default function Navbar() {
 
   return (
     <header className="w-full z-50">
-      {/* Main Nav */}
-      <div className="fixed top-0 left-0 w-full bg-white shadow-md z-50 ">
+      <div className="fixed top-0 left-0 w-full bg-white shadow-md z-50">
         <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2 ">
-            <Image
-              src={Logo}
-              alt="Logo"
-              width={200}
-              height={200}
-              className="object-contain"
-            />
-          </Link>
+          <NextLink href="/" className="flex items-center gap-2">
+            <Image src={Logo} alt="Logo" width={200} height={200} className="object-contain" />
+          </NextLink>
 
           {/* Desktop Nav */}
-          <div
-            className="hidden lg:block relative "
-            onMouseLeave={() => setHoveredItem(null)}
-          >
-            <nav className="flex space-x-6 items-center max-w-screen-xl px-6 sm:px-8 lg:px-16 mx-auto  py-3 sm:py-4 ">
-              {navItems.map((item, index) => (
-                <div
-                  key={index}
-                  className="relative"
-                  onMouseEnter={() => {
-                    if (item.label === "About") setHoveredItem(item.label);
-                  }}
-                >
-                  <Link
-                    href={item.url}
-                    className={`cursor-pointer font-semibold text-gray-800 hover:text-green-600 px-3 py-2 ${pathname === item.url || pathname.startsWith(item.url)
-                        ? "text-green-600 border-b-2 border-green-600"
-                        : ""
-                      }`}
+          <div className="hidden lg:flex items-center space-x-6">
+            {navItems.map((item, index) => {
+              if (item.to) {
+                return (
+                  <ScrollLink
+                    key={index}
+                    to={item.to}
+                    smooth={true}
+                    duration={500}
+                    offset={item.offset || -100}
+                    spy={true}
+                    activeClass="text-green-600 border-b-2 border-green-600"
+                    className="cursor-pointer font-semibold text-gray-800 hover:text-green-600 px-3 py-2"
                   >
                     {item.label}
-                  </Link>
-                </div>
-              ))}
-            </nav>
+                  </ScrollLink>
+                );
+              }
+              return (
+                <NextLink
+                  key={index}
+                  href={item.url}
+                  className={`cursor-pointer font-semibold text-gray-800 hover:text-green-600 px-3 py-2 ${pathname === item.url ? "text-green-600 border-b-2 border-green-600" : ""
+                    }`}
+                >
+                  {item.label}
+                </NextLink>
+              );
+            })}
+
+            {/* Donate Button */}
+            <NextLink
+              href="http://nutm.edu.ng/donate"
+              target="_blank"
+              className="ml-4 px-6 py-3 rounded-md bg-green-600 text-white font-semibold hover:bg-green-700 transition"
+            >
+              Donate
+            </NextLink>
           </div>
 
           {/* Mobile Toggle */}
           <button
-            className="lg:hidden text-gray-800 "
+            className="lg:hidden text-gray-800"
             onClick={() => setMobileOpen(!mobileOpen)}
             aria-label="Toggle mobile menu"
           >
@@ -97,69 +103,42 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* Full-width Hover SubNavbar with Animation */}
-      <AnimatePresence>
-        {hoveredItem && (
-          <motion.div
-            className="hidden lg:flex flex-col items-end  fixed left-0 w-full shadow z-40  mt-3  bg-green-900"
-            style={{ top: "76px" }} // match navbar height
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -10 }}
-            transition={{ duration: 0.2 }}
-            onMouseEnter={() => setHoveredItem(hoveredItem)}
-            onMouseLeave={() => setHoveredItem(null)}
-          >
-            <h1 className="text-white text-lg p-2">About the Foundation</h1>
-            <div className="max-w-7xl  px-6 py-4 w-1/3 flex justify-center items-end space-x-8  rounded-b-lg  border-t-3  border-green-400">
-
-              {navItems
-                .find((item) => item.label === hoveredItem)
-                ?.subItems.map((sub, idx) => (
-                  <Link
-                    key={idx}
-                    href={sub.href}
-                    className=" hover:text-green-400  font-semibold text-lg text-white px-4 py-2 transition-all duration-200 rounded-xs hover:border-b-3 pb-2"
-                  >
-                    {sub.label}
-                  </Link>
-
-                ))}
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-
       {/* Mobile Menu */}
       {mobileOpen && (
-        <div className="fixed top-0 left-0 right-0 z-50 lg:hidden bg-green-950 opacity-90  shadow-md px-6 pb-6 pt-2 space-y-4 mt-[72px] max-h-screen overflow-y-auto ">
+        <div className="fixed top-0 left-0 right-0 z-50 lg:hidden bg-green-950 opacity-95 shadow-md px-6 pb-6 pt-2 space-y-4 mt-[72px] max-h-screen overflow-y-auto">
           {navItems.map((item, index) => (
             <div key={index}>
-              <button
-                className="w-full flex justify-between items-center py-3 font-semibold text-white "
-                onClick={() => toggleDropdown(item.label)}
-              >
-                {item.label}
-                <span className="text-lg">
-                  {activeDropdown === item.label ? "−" : "+"}
-                </span>
-              </button>
-              {activeDropdown === item.label && (
-                <div className="pl-4 space-y-2">
-                  {item.subItems.map((subItem, subIdx) => (
-                    <Link
-                      key={subIdx}
-                      href={subItem.href}
-                      onClick={() => setMobileOpen(false)}
-                      className="block text-gray-700 hover:text-green-600 text-sm"
-                    >
-                      {subItem.label}
-                    </Link>
-                  ))}
-                </div>
+              {item.to ? (
+                <ScrollLink
+                  to={item.to}
+                  smooth={true}
+                  duration={500}
+                  offset={item.offset || -100}
+                  onClick={() => setMobileOpen(false)}
+                  className="block py-3 font-semibold text-white"
+                >
+                  {item.label}
+                </ScrollLink>
+              ) : (
+                <NextLink
+                  href={item.url}
+                  onClick={() => setMobileOpen(false)}
+                  className="block py-3 font-semibold text-white"
+                >
+                  {item.label}
+                </NextLink>
               )}
             </div>
           ))}
+
+          {/* Donate button in mobile */}
+          <NextLink
+            href="/donate"
+            onClick={() => setMobileOpen(false)}
+            className="block mt-4 px-4 py-2 rounded-full bg-green-600 text-white text-center font-semibold hover:bg-green-700 transition"
+          >
+            Donate
+          </NextLink>
         </div>
       )}
     </header>

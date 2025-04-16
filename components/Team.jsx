@@ -10,8 +10,8 @@ export default function TrusteesSection() {
   const [selectedTrustee, setSelectedTrustee] = useState(null);
 
   return (
-    <section className="py-16 px-6 lg:px-20 bg-gray-50">
-      <h2 className="text-3xl font-semibold text-center text-green-800 mb-12">Meet Our Trustees</h2>
+    <section id='trustees' className="py-16 px-6 lg:px-20 bg-gray-50">
+      <h2 className="text-3xl lg:text-4xl font-semibold text-center text-green-main mb-12">Board of Trustees</h2>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 justify-items-center">
         {trustees.map((trustee) => (
@@ -67,7 +67,7 @@ export default function TrusteesSection() {
               <div className="p-6 flex flex-col h-full">
                 {/* Sticky Header */}
                 <div className=" sticky top-0 z-10 pb-2 ">
-                  <h3 className="text-2xl font-semibold text-green-700">{selectedTrustee.name}</h3>
+                  <h3 className="text-2xl font-semibold text-green-main">{selectedTrustee.name}</h3>
                   <p className="text-sm text-gray-500">{selectedTrustee.title}</p>
                 </div>
 

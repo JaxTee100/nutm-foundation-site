@@ -19,9 +19,7 @@ export default function Footer() {
           <p className="text-sm">
             12 East 49th Street, 41st Floor <br />
             New York, NY 10017<br />
-            Lagos, Nigeria.
           </p>
-          <p className="text-sm">Email: contact@nutm.edu.ng</p>
           <p className="text-sm">Phone:<br />
             Office: ‪+1-212-508-9400‬<br />
             Administrative: ‪+1-410-251-9210</p>
@@ -37,24 +35,7 @@ export default function Footer() {
           </ul>
         </div>
 
-        {/* Socials */}
-        <div className="space-y-3 animate-slide-up">
-          <h4 className="font-semibold text-lg">Connect With Us</h4>
-          <div className="flex space-x-4">
-            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="hover:text-green-300 transition">
-              <FaFacebookF size={20} />
-            </a>
-            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="hover:text-green-300 transition">
-              <FaTwitter size={20} />
-            </a>
-            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="hover:text-green-300 transition">
-              <FaInstagram size={20} />
-            </a>
-            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="hover:text-green-300 transition">
-              <FaLinkedinIn size={20} />
-            </a>
-          </div>
-        </div>
+        
 
         {/* Newsletter / CTA */}
         <div className="space-y-3 animate-slide-up">

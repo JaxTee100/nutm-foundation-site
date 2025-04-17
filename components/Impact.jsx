@@ -33,7 +33,7 @@ export default function Impact() {
           {impactCards.map((card, index) => (
             <motion.div
               key={index}
-              className="bg-white px-6 py-8 rounded-xl shadow-md border border-green-100 hover:shadow-lg transition-all duration-300 text-center"
+              className="bg-white w-full px-6 py-8 rounded-xl shadow-md border border-green-100 hover:shadow-lg transition-all duration-300 text-center"
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.2 + 0.2, duration: 0.7 }}

@@ -50,9 +50,9 @@ export default function AboutSection() {
       >
         Our Impact
       </motion.h2>
-      <div className='flex flex-col md:flex-row items-center justify-center gap-10'>
+      <div className='flex flex-col lg:flex-row items-center justify-center gap-10'>
         {/* Image Section */}
-        <div className="w-full md:w-1/2 relative aspect-[16/9] md:aspect-[4/5] max-h-[500px] overflow-hidden rounded-xs shadow-lg">
+        <div className="w-full lg:w-1/2 relative aspect-[16/9] md:aspect-[4/5] max-h-[500px] overflow-hidden rounded-xs shadow-lg">
           <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-black/20 to-transparent z-10 pointer-events-none rounded-xs" />
 
           <button
@@ -105,7 +105,7 @@ export default function AboutSection() {
         </div>
 
         {/* Text Content */}
-        <div className="w-full md:w-1/2 text-center md:text-left lg:p-2 lg:mt-0">
+        <div className="w-full lg:w-1/2 text-center md:text-left lg:p-2 lg:mt-0">
           <motion.h2
             className="text-2xl sm:text-3xl font-bold text-green-main mb-4"
             initial={{ y: 30, opacity: 0 }}

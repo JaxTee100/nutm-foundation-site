@@ -53,7 +53,7 @@ export default function Hero() {
         <div className="absolute inset-0 bg-green-main opacity-30 z-0" />
 
         {/* Text Section */}
-        <div className="z-10 w-full max-w-4xl flex flex-col items-center lg:items-start text-center lg:text-left">
+        <div className="z-10 w-full max-w-4xl flex flex-col items-center lg:items-start  lg:text-left">
           <AnimatePresence mode="wait">
             <motion.h1
               key={slides[currentSlide].text}

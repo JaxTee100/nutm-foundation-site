@@ -86,7 +86,7 @@ export default function Hero() {
 
         {/* Scroll Down Button */}
         <motion.a
-          href="#mission-statement"
+          href="#mission"
           className="absolute bottom-8 sm:bottom-10 left-1/2 transform -translate-x-1/2 w-12 h-12 sm:w-14 sm:h-14 flex justify-center items-center bg-white text-green-main rounded-full shadow-lg hover:bg-green-100 transition z-20"
           initial={{ y: 30, opacity: 0 }}
           animate={{ y: [0, -10, 0], opacity: 1 }}

@@ -1,4 +1,3 @@
-
 import './globals.css'
 import { Inter } from 'next/font/google'
 import ScrollToTop from "@/components/ScrollToTop";
@@ -15,7 +14,10 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <head>
+        {/* You can add the link to Google Fonts here, but it's handled by the `Inter` import */}
+      </head>
+      <body className={`${inter.className} font-sans text-gray-900 bg-white`}>
         <Navbar />
         {children}
         <ScrollToTop />

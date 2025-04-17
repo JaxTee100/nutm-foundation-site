@@ -30,9 +30,10 @@ export default function Hero() {
     <MotionSection>
       <section
         id="hero"
-        className="relative min-h-screen flex items-start justify-start text-white overflow-hidden px-6 sm:px-12 lg:px-16 pt-32 sm:pt-40"
+        className="relative min-h-screen flex items-center justify-center lg:justify-start text-white overflow-hidden px-6 sm:px-12 lg:px-16 pt-32 sm:pt-40"
       >
-        {/* Background with smooth zoom animation */}
+
+        {/* Background Image with Zoom Animation */}
         <motion.div
           className="absolute inset-0 bg-cover bg-center z-0"
           style={{
@@ -48,11 +49,11 @@ export default function Hero() {
           }}
         />
 
-        {/* Overlay for dark contrast */}
+        {/* Green Overlay */}
         <div className="absolute inset-0 bg-green-main opacity-30 z-0" />
 
-        {/* Text and CTA */}
-        <div className="z-10 max-w-4xl flex flex-col items-start text-left">
+        {/* Text Section */}
+        <div className="z-10 w-full max-w-4xl flex flex-col items-center lg:items-start text-center lg:text-left">
           <AnimatePresence mode="wait">
             <motion.h1
               key={slides[currentSlide].text}
@@ -82,10 +83,11 @@ export default function Hero() {
           </AnimatePresence>
         </div>
 
-        {/* Fixed Donate Button */}
+
+        {/* Scroll Down Button */}
         <motion.a
           href="#mission-statement"
-          className="absolute bottom-10 left-6 sm:left-12 lg:left-32 w-12 h-12 sm:w-14 sm:h-14 flex justify-center items-center bg-white text-green-main rounded-full shadow-lg hover:bg-green-100 transition z-20"
+          className="absolute bottom-8 sm:bottom-10 left-1/2 transform -translate-x-1/2 w-12 h-12 sm:w-14 sm:h-14 flex justify-center items-center bg-white text-green-main rounded-full shadow-lg hover:bg-green-100 transition z-20"
           initial={{ y: 30, opacity: 0 }}
           animate={{ y: [0, -10, 0], opacity: 1 }}
           transition={{ delay: 1.2, duration: 2, repeat: Infinity }}

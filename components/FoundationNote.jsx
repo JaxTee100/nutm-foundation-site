@@ -15,7 +15,7 @@ export default function FoundationNote() {
         <h2 className="text-3xl sm:text-4xl font-bold text-green-800 mb-6 text-center">
           Our Mission
         </h2>
-        <p className="text-lg sm:text-xl text-gray-700 leading-relaxed">
+        <p className="text-lg sm:text-xl text-gray-700 leading-relaxed lg:text-center">
           <span className="font-medium text-green-900">NUTM Foundation, Inc.</span> (“NUTM Foundation”) is a nonprofit organization incorporated under the laws of the State of Delaware and operates exclusively for charitable, educational, and scientific purposes in accordance with Section 501(c)(3) of the Internal Revenue Code of 1986, as amended (the “Code”).<br /><br />
           
           NUTM Foundation is committed to advancing post-secondary education in science, technology, engineering, and mathematics (STEM) across Nigeria and the African continent.<br /><br />

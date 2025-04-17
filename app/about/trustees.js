@@ -14,7 +14,7 @@ export const trustees = [
       id: 2,
       name: "Iyinoluwa Aboyeji",
       title: "Trustee",
-      image: "/trustees/aboyeji.png",
+      image: "/trustees/yeji.jpeg",
       bio: `Iyinoluwa Aboyeji is a serial entrepreneur, investor, and thought leader at the forefront of Africa’s technology revolution. He is best known as the Co-Founder of two of Africa’s most influential startups—Andela, a talent accelerator that trains software engineers for the global market, and Flutterwave, a leading payments technology company that facilitates seamless commerce across Africa.
   
   Currently, Iyinoluwa leads Future Africa, an early-stage investment firm and community that funds and supports mission-driven founders building scalable solutions to Africa’s biggest challenges. Through Future Africa, he has backed over 100 startups across fintech, healthtech, edtech, and climate innovation.

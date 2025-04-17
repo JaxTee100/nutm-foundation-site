@@ -22,18 +22,18 @@ export default function Impact() {
   return (
     <motion.section
       id="impact"
-      className="bg-green-50 py-8 md:py-12 px-4 md:px-6 text-green-900"
+      className=" py-4 md:py-8 px-4 md:px-6 text-green-900"
       initial={{ opacity: 0, y: 40 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8 }}
       viewport={{ once: true }}
     >
       <div className="max-w-6xl mx-auto">
-        <div className="grid md:grid-cols-3 gap-6 md:gap-10">
+        <div className="grid md:grid-cols-3 gap-6 md:gap-6">
           {impactCards.map((card, index) => (
             <motion.div
               key={index}
-              className="bg-white p-6 rounded-2xl shadow-md border border-green-100 hover:shadow-lg transition-all duration-300"
+              className="bg-white px-6 py-8 rounded-xl shadow-md border border-green-100 hover:shadow-lg transition-all duration-300"
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.2 + 0.2, duration: 0.7 }}

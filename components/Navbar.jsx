@@ -23,13 +23,10 @@ const navItems = [
     to: "programs",
   },
   {
-    label: "Impact",
-    to: "impact",
-  },
-  {
     label: "About Us",
     to: "about",
-  },
+  }
+  
 ];
 
 

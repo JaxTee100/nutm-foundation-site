@@ -12,21 +12,23 @@ import Logo from "../assets/nutm.png";
 export default function Footer() {
   return (
     <footer className="bg-green-900 text-white pt-10 pb-6 px-6 lg:px-20">
-      <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 text-center lg:text-left items-center">
         {/* Logo & Address */}
-        <div className="space-y-4 animate-fade-in ">
-          <Image src={Logo} alt="Logo" width={150} height={150} className="object-contain bg-white p-3" />
+        <div className="space-y-4 animate-fade-in flex flex-col items-center lg:items-start ">
+          
           <p className="text-sm">
             12 East 49th Street, 41st Floor <br />
-            New York, NY 10017<br />
+            New York, NY 10017
           </p>
-          <p className="text-sm">Phone:<br />
+          <p className="text-sm">
+            Phone:<br />
             Office: ‪+1-212-508-9400‬<br />
-            Administrative: ‪+1-410-251-9210</p>
+            Administrative: ‪+1-410-251-9210‬
+          </p>
         </div>
 
         {/* Quick Links */}
-        <div className="space-y-3 animate-slide-up">
+        <div className="space-y-3 animate-slide-up flex flex-col items-center lg:items-start">
           <h4 className="font-semibold text-lg">Quick Links</h4>
           <ul className="space-y-2 text-sm">
             <li><Link href="/about/foundation" className="hover:text-green-300 transition-colors">About Us</Link></li>
@@ -35,10 +37,8 @@ export default function Footer() {
           </ul>
         </div>
 
-        
-
         {/* Newsletter / CTA */}
-        <div className="space-y-3 animate-slide-up">
+        <div className="space-y-3 animate-slide-up flex flex-col items-center lg:items-start">
           <h4 className="font-semibold text-lg">Join Our Mission</h4>
           <p className="text-sm">Support the future of African innovation.</p>
           <Link
@@ -52,7 +52,7 @@ export default function Footer() {
       </div>
 
       {/* Divider */}
-      <div className="border-t border-green-700 my-6" />
+      <div className="border-t-3 border-green-700 my-6" />
 
       {/* Copyright */}
       <div className="text-center text-sm text-green-300">

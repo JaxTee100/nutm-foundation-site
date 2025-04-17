@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { trustees } from '../app/about/trustees'
+import { trustees } from "@/lib/trustees"; // Adjust the import path as necessary
 
 
 export default function TrusteesSection() {

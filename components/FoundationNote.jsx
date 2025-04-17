@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 export default function FoundationNote() {
   return (
-    <section id='mission' className="relative z-20 py-16 px-6 sm:px-12 lg:px-32 bg-gray-100 h-[100vh]">
+    <section id='mission' className="relative z-20 py-16 px-6 sm:px-12 lg:px-32 bg-gray-100">
       <motion.div
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}

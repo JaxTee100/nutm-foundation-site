@@ -1,13 +1,5 @@
-import Image from "next/image";
-import Link from "next/link";
-import {
-  FaFacebookF,
-  FaTwitter,
-  FaInstagram,
-  FaLinkedinIn,
-} from "react-icons/fa";
 
-import Logo from "../assets/nutm.png";
+import Link from "next/link";
 
 export default function Footer() {
   return (

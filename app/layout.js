@@ -17,7 +17,7 @@ export default function RootLayout({ children }) {
       <head>
         {/* You can add the link to Google Fonts here, but it's handled by the `Inter` import */}
       </head>
-      <body className={`${inter.className} font-sans text-gray-900 bg-white`}>
+      <body className={`${inter.className} font-sans text-gray-900 `}>
         <Navbar />
         {children}
         <ScrollToTop />

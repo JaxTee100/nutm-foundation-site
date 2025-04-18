@@ -11,7 +11,7 @@ const slides = [
   },
   {
     text: "Strengthening STEM capacity in Africa",
-    image: '/scholars2.jpeg'
+    image: '/scholar3.webp'
   },
   {
     text: "Promoting equitable opportunities for African youths",
@@ -33,7 +33,7 @@ export default function Hero() {
     <MotionSection>
       <section
         id="hero"
-        className="relative min-h-screen flex items-center justify-center lg:justify-start text-white overflow-hidden px-6 sm:px-12 lg:px-16 pt-32 sm:pt-40"
+        className="relative min-h-screen flex items-center justify-center lg:justify-start text-white overflow-hidden px-6 sm:px-12 lg:px-16 pt-[100px] md:pt-[120px]"
       >
         {/* ✅ Dynamic Background Image */}
         <motion.div
@@ -51,10 +51,10 @@ export default function Hero() {
         />
 
         {/* Green Overlay */}
-        <div className="absolute inset-0 bg-green-main opacity-30 z-0" />
+        <div className="absolute inset-0 bg-green-950 opacity-50 z-0" />
 
         {/* Text Section */}
-        <div className="z-10 w-full max-w-4xl flex flex-col items-center lg:items-start lg:text-left">
+        <div className="z-10 w-full max-w-7xl mx-auto px-4 md:px-6 flex flex-col items-center lg:items-start lg:text-left">
           <AnimatePresence mode="wait">
             <motion.h1
               key={slides[currentSlide].text}
@@ -62,7 +62,7 @@ export default function Hero() {
               animate={{ x: 0, opacity: 1 }}
               exit={{ x: "100%", opacity: 0 }}
               transition={{ duration: 2.5 }}
-              className="text-3xl sm:text-4xl md:text-6xl font-bold mb-6 tracking-wide leading-snug sm:leading-tight"
+              className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 tracking-wide leading-tight"
             >
               <span className="text-green-main">
                 {

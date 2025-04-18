@@ -9,7 +9,7 @@ import AboutSection from "@/components/About";
 
 export default function Home() {
     return (
-        <main className="scroll-smooth">
+        <main className="scroll-smooth ">
             <Hero />
             
             <FoundationNote />
@@ -17,6 +17,7 @@ export default function Home() {
             <Programs />
             
             <AboutSection />
+            <Impact />
             
             
             

@@ -12,7 +12,8 @@ const navItems = [
   { label: 'Our Mission', to: 'mission', offset: -80 },
   { label: 'Trustees', to: 'trustees', offset: -80 },
   { label: 'Programs', to: 'programs', offset: -80 },
-  { label: 'About Us', to: 'about', offset: -80 },
+  { label: 'Grantees', to: 'about', offset: -80 },
+  { label: 'Impact', to: 'impact', offset: -80 },
 ];
 
 export default function Navbar() {
@@ -28,8 +29,8 @@ export default function Navbar() {
             <Image
               src={Logo}
               alt="Logo"
-              width={160}
-              height={160}
+              width={200}
+              height={200}
               className="object-contain"
               priority
             />

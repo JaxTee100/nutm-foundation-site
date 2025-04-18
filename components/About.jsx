@@ -105,7 +105,7 @@ export default function AboutSection() {
         </div>
 
         {/* Text Content */}
-        <div className="w-full lg:w-1/2 text-center md:text-left lg:p-2 lg:mt-0">
+        <div className="w-full lg:w-1/2 text-center md:text-left lg:mt-0">
           <motion.h2
             className="text-2xl sm:text-3xl font-bold text-green-main mb-4"
             initial={{ y: 30, opacity: 0 }}
@@ -114,23 +114,33 @@ export default function AboutSection() {
           >
             About Nigeria University of Technology and Management
           </motion.h2>
+
           <motion.p
-            className="text-gray-700 text-sm sm:text-base lg:px-4 leading-relaxed"
+            className="text-gray-700 text-sm sm:text-base leading-relaxed mb-6"
             initial={{ y: 30, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.5, duration: 0.8 }}
           >
-            NUTM Foundation, Inc. (“NUTM Foundation”) is a nonprofit organization incorporated under the laws of the State of Delaware and operates exclusively for charitable, educational, and scientific purposes in accordance with Section 501(c)(3) of the Internal Revenue Code of 1986, as amended (the “Code”).<br /><br />
-            NUTM Foundation is committed to advancing post-secondary education in science, technology, engineering, and mathematics (STEM) across Nigeria and the African continent.<br /><br />
-            To achieve this mission, NUTM Foundation intends to provide grants to educational institutions and other organizations that qualify as 501(c)(3) entities or their equivalents in Africa and globally. These grants will support initiatives such as awarding scholarships to students pursuing STEM education, engaging visiting faculty and professors in STEM disciplines at African institutions, and funding research projects at universities across the continent.
+            Nigerian University of Technology and Management is a licensed independent higher institution focusing on excellence and quality education in STEM (Science, Technology, Engineering, Mathematics), Entrepreneurship and Management, and the development of innovative leaders to create impact. The University was conceived at the Aspen Leadership Institute by some Nigerian business leaders to address the greatest bottlenecks to African development.
+
+            NUTM will strive for excellence in technology and management, and become a hub for best-in-class learning and research. It will focus on areas in Science, Technology, Engineering, Mathematics, and Management in its academic offerings at the undergraduate, postgraduate, and doctoral levels. In the next 10 years, NUTM aspires to be among the top five universities in Africa, and the best in Nigeria and has a vision to be ranked within the top 50 universities globally.
           </motion.p>
+
+          <motion.a
+            href="https://nutm.edu.ng"
+            target="_blank"
+            rel="noopener noreferrer"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="inline-block px-6 py-3 bg-green-main text-white font-semibold rounded-lg shadow-md hover:bg-green-700 transition duration-300"
+          >
+            Visit NUTM Website
+          </motion.a>
         </div>
+
       </div>
 
-      {/* Impact Component */}
-      <div className="w-full">
-        <Impact />
-      </div>
+   
     </section>
   );
 }

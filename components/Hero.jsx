@@ -7,12 +7,15 @@ import MotionSection from "./MotionSection";
 const slides = [
   {
     text: "Advancing world-class higher education for Africans",
+    image: '/scholar-photo.jpg',
   },
   {
     text: "Strengthening STEM capacity in Africa",
+    image: '/scholars2.jpeg'
   },
   {
     text: "Promoting equitable opportunities for African youths",
+    image: '/scholar3.png'
   },
 ];
 
@@ -32,28 +35,26 @@ export default function Hero() {
         id="hero"
         className="relative min-h-screen flex items-center justify-center lg:justify-start text-white overflow-hidden px-6 sm:px-12 lg:px-16 pt-32 sm:pt-40"
       >
-
-        {/* Background Image with Zoom Animation */}
+        {/* ✅ Dynamic Background Image */}
         <motion.div
+          key={slides[currentSlide].image}
           className="absolute inset-0 bg-cover bg-center z-0"
           style={{
-            backgroundImage: `url('/scholar-photo.jpg')`,
+            backgroundImage: `url('${slides[currentSlide].image}')`,
             backgroundBlendMode: "overlay",
             backgroundColor: "rgba(0, 0, 0, 0.4)",
           }}
-          animate={{ scale: [1, 1.05, 1] }}
-          transition={{
-            duration: 20,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1, scale: [1, 1.05, 1] }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 2, ease: "easeInOut" }}
         />
 
         {/* Green Overlay */}
         <div className="absolute inset-0 bg-green-main opacity-30 z-0" />
 
         {/* Text Section */}
-        <div className="z-10 w-full max-w-4xl flex flex-col items-center lg:items-start  lg:text-left">
+        <div className="z-10 w-full max-w-4xl flex flex-col items-center lg:items-start lg:text-left">
           <AnimatePresence mode="wait">
             <motion.h1
               key={slides[currentSlide].text}
@@ -82,7 +83,6 @@ export default function Hero() {
             </motion.h1>
           </AnimatePresence>
         </div>
-
 
         {/* Scroll Down Button */}
         <motion.a

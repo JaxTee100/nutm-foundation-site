@@ -62,7 +62,7 @@ export default function Hero() {
               animate={{ x: 0, opacity: 1 }}
               exit={{ x: "100%", opacity: 0 }}
               transition={{ duration: 2.5 }}
-              className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 tracking-wide leading-tight"
+              className="text-3xl sm:text-4xl md:text-6xl font-bold mb-6 tracking-wide leading-snug sm:leading-tight"
             >
               <span className="text-green-main">
                 {

@@ -171,3 +171,24 @@ circle {
 .MuiTimelineConnector-root{
   background-color: rgba(47, 171, 115, 1) !important;
 }
+
+
+/* Style the scrollbar track */
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background-color: #059669; /* Tailwind's green-600 */
+  border-radius: 6px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f0f0f0; /* Light grey */
+}
+/* Add smooth hover effects */
+::-webkit-scrollbar-thumb:hover {
+  background-color: #047857; /* Tailwind's green-700 */
+}

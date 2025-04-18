@@ -6,7 +6,7 @@ import MotionSection from "./MotionSection";
 
 const slides = [
   {
-    text: "The NUTM Foundation supports students, research, and innovation through higher education",
+    text: "Advancing world-class higher education for Africans",
   },
   {
     text: "Strengthening STEM capacity in Africa",

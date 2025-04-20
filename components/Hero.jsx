@@ -1,4 +1,4 @@
-"use client";
+ "use client";
 
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -6,7 +6,7 @@ import MotionSection from "./MotionSection";
 
 const slides = [
   {
-    text: "Advancing world-class higher education for Africans",
+    text: "Advancing world-class higher education for Africans",   
     image: '/scholar-photo.jpg',
   },
   {
@@ -35,21 +35,23 @@ export default function Hero() {
         id="hero"
         className="relative min-h-screen flex items-center justify-center lg:justify-start text-white overflow-hidden px-6 sm:px-12 lg:px-16 pt-[100px] md:pt-[120px]"
       >
-        {/* ✅ Dynamic video background*/}
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
-          className="absolute inset-0 w-full h-full object-cover z-0"
-        >
-          <source src="/nutm.mp4" type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
-
+        {/* ✅ Dynamic Background Image */}
+        <motion.div
+          key={slides[currentSlide].image}
+          className="absolute inset-0 bg-cover bg-center z-0"
+          style={{
+            backgroundImage: `url('${slides[currentSlide].image}')`,
+            backgroundBlendMode: "overlay",
+            backgroundColor: "rgba(0, 0, 0, 0.4)",
+          }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1, scale: [1, 1.05, 1] }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 2, ease: "easeInOut" }}
+        />
 
         {/* Green Overlay */}
-        <div className="absolute inset-0 bg-green-950 opacity-80 z-0" />
+        <div className="absolute inset-0 bg-green-950 opacity-50 z-0" />
 
         {/* Text Section */}
         <div className="z-10 w-full max-w-7xl mx-auto px-4 md:px-6 flex flex-col items-center lg:items-start lg:text-left">

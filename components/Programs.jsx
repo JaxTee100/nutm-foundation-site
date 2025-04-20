@@ -9,9 +9,9 @@ const programs = [
       "The Foundation provides merit-based and need-based scholarships to help bright undergraduate and postgraduate African students overcome barriers to accessing a world-class education.",
   },
   {
-    title: "🔬 Research & Innovation Grants",
+    title: "🔬 Research & Innovation Grants ",
     description:
-      "Funding cutting-edge research in health, technology, climate science, and more to keep our university on the global map.",
+      "Funding cutting-edge research in STEM programs and entrepreneurial ventures solving problems across the African continent.",
   },
   {
     title: "🏛 Campus Development",
@@ -19,9 +19,9 @@ const programs = [
       "Committed to ensuring a world-class experience for its grantees, the Foundation supports infrastructure development across the programs it supports in Africa.",
   },
   {
-    title: "🤝 Community Outreach",
+    title: "Community Outreach",
     description:
-      "Partnering with local communities to offer education, mentorship, and social support programs beyond campus.",
+      "Partnering with institutions and social organisations in the communities where our grantees operate to offer education, mentorship, and social support programs beyond campus.",
   },
 ];
 
@@ -29,7 +29,7 @@ export default function Programs() {
   return (
     <section
       id="programs"
-      className="bg-white py-20 px-6 text-green-900 overflow-hidden"
+      className="bg-slate-100 py-20 px-6 text-green-900 overflow-hidden min-h-screen"
     >
       <div className="max-w-6xl mx-auto">
         <motion.h2

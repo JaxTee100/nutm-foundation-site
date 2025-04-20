@@ -39,16 +39,16 @@ export default function AboutSection() {
   return (
     <section
       id="about"
-      className="flex flex-col items-center justify-center gap-20 px-4 md:px-0 py-10 lg:pt-12 lg:pb-2 bg-white"
+      className="flex flex-col items-center justify-center gap-20 px-4 md:px-0 py-10 lg:pt-12 lg:pb-2 bg-white min-h-screen"
     >
       <motion.h2
-        className="text-3xl sm:text-4xl font-extrabold text-green-900 text-center mb-2"
+        className="text-3xl sm:text-4xl font-extrabold text-green-main  text-center mb-2"
         initial={{ y: 30, opacity: 0 }}
         whileInView={{ y: 0, opacity: 1 }}
         transition={{ delay: 0.1, duration: 0.6 }}
         viewport={{ once: true }}
       >
-        Our Impact
+        Grantees
       </motion.h2>
       <div className='flex flex-col lg:flex-row items-center justify-center gap-10'>
         {/* Image Section */}
@@ -115,16 +115,21 @@ export default function AboutSection() {
             About Nigeria University of Technology and Management
           </motion.h2>
 
-          <motion.p
-            className="text-gray-700 text-sm sm:text-base leading-relaxed mb-6"
+          <motion.div
+            className="text-gray-700 text-sm sm:text-base leading-relaxed space-y-4 mb-6"
             initial={{ y: 30, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.5, duration: 0.8 }}
           >
+            <p>
             Nigerian University of Technology and Management is a licensed independent higher institution focusing on excellence and quality education in STEM (Science, Technology, Engineering, Mathematics), Entrepreneurship and Management, and the development of innovative leaders to create impact. The University was conceived at the Aspen Leadership Institute by some Nigerian business leaders to address the greatest bottlenecks to African development.
 
+            </p>
+
+            <p>
             NUTM will strive for excellence in technology and management, and become a hub for best-in-class learning and research. It will focus on areas in Science, Technology, Engineering, Mathematics, and Management in its academic offerings at the undergraduate, postgraduate, and doctoral levels. In the next 10 years, NUTM aspires to be among the top five universities in Africa, and the best in Nigeria and has a vision to be ranked within the top 50 universities globally.
-          </motion.p>
+            </p>
+          </motion.div>
 
           <motion.a
             href="https://nutm.edu.ng"
@@ -140,7 +145,7 @@ export default function AboutSection() {
 
       </div>
 
-   
+
     </section>
   );
 }

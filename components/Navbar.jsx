@@ -13,7 +13,7 @@ const navItems = [
   { label: 'Trustees', to: 'trustees', offset: -80 },
   { label: 'Programs', to: 'programs', offset: -80 },
   { label: 'Grantees', to: 'about', offset: -80 },
-  { label: 'Impact', to: 'impact', offset: -80 },
+  { label: 'Our Impact', to: 'impact', offset: 0 },
 ];
 
 export default function Navbar() {

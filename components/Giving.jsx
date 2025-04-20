@@ -3,7 +3,7 @@ import Link from "next/link";
 // components/Giving.tsx
 export default function Giving() {
   return (
-    <section id="giving" className="bg-green-200 py-20 px-6 text-green-900">
+    <section id="giving" className="bg-green-200 py-20 px-6 text-green-900 min-h-screen">
       <div className="max-w-4xl mx-auto text-center">
         <h2 className="text-3xl md:text-4xl font-bold mb-6">Ways to Support</h2>
         <p className="text-lg md:text-xl mb-10">

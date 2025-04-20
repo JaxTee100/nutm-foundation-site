@@ -22,12 +22,21 @@ export default function Impact() {
   return (
     <motion.section
       id="impact"
-      className="py-8 px-4 sm:px-6 md:px-8 text-green-900"
+      className="py-8 lg:py-20 px-4 sm:px-6 md:px-8 text-green-main min-h-[calc(100vh-50px)]   bg-slate-100"
       initial={{ opacity: 0, y: 40 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8 }}
       viewport={{ once: true }}
     >
+      <motion.h1
+        className="text-3xl sm:text-4xl font-extrabold text-green-main  text-center mb-2 lg:mb-10"
+        initial={{ y: 30, opacity: 0 }}
+        whileInView={{ y: 0, opacity: 1 }}
+        transition={{ delay: 0.1, duration: 0.6 }}
+        viewport={{ once: true }}
+      >
+        Our Impact
+      </motion.h1>
       <div className="max-w-6xl mx-auto">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
           {impactCards.map((card, index) => (
@@ -39,7 +48,7 @@ export default function Impact() {
               transition={{ delay: index * 0.2 + 0.2, duration: 0.7 }}
               viewport={{ once: true }}
             >
-              <h3 className="text-xl sm:text-2xl font-semibold mb-2 text-green-800">
+              <h3 className="text-xl sm:text-2xl font-semibold mb-2 text-green-main">
                 {card.title}
               </h3>
               <p className="text-gray-700 text-sm sm:text-base">{card.description}</p>

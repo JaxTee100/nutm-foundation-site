@@ -12,7 +12,7 @@ export default function FoundationNote() {
         transition={{ duration: 0.8, ease: "easeOut" }}
         className="max-w-4xl mx-auto"
       >
-        <h2 className="text-3xl sm:text-4xl font-bold text-green-800 mb-6 text-center">
+        <h2 className="text-3xl sm:text-4xl font-bold text-green-main tracking-wider mb-6 text-center">
           Our Mission
         </h2>
         <p className="text-lg sm:text-xl text-gray-700 leading-relaxed lg:text-center">

@@ -29,11 +29,11 @@ export default function Programs() {
   return (
     <section
       id="programs"
-      className="bg-slate-100 py-20 px-6 text-green-900 overflow-hidden min-h-screen"
+      className="bg-slate-100 py-20 px-6 text-green-main overflow-hidden min-h-screen"
     >
       <div className="max-w-6xl mx-auto">
         <motion.h2
-          className="text-3xl sm:text-4xl font-bold text-center mb-16"
+          className="text-3xl sm:text-4xl font-bold text-center tracking-wider mb-16"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}

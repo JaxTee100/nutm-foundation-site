@@ -42,7 +42,7 @@ export default function AboutSection() {
       className="flex flex-col items-center justify-center gap-20 px-4 md:px-0 py-10 lg:pt-12 lg:pb-2 bg-white min-h-screen"
     >
       <motion.h2
-        className="text-3xl sm:text-4xl font-extrabold text-green-main  text-center mb-2"
+        className="text-3xl sm:text-4xl font-bold text-green-main tracking-wider text-center mb-2"
         initial={{ y: 30, opacity: 0 }}
         whileInView={{ y: 0, opacity: 1 }}
         transition={{ delay: 0.1, duration: 0.6 }}

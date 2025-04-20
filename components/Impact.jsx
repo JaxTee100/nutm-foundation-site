@@ -29,7 +29,7 @@ export default function Impact() {
       viewport={{ once: true }}
     >
       <motion.h1
-        className="text-3xl sm:text-4xl font-extrabold text-green-main  text-center mb-2 lg:mb-10"
+        className="text-3xl sm:text-4xl font-bold text-green-main tracking-wider text-center mb-2 lg:mb-10"
         initial={{ y: 30, opacity: 0 }}
         whileInView={{ y: 0, opacity: 1 }}
         transition={{ delay: 0.1, duration: 0.6 }}

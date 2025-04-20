@@ -11,7 +11,15 @@ export default function TrusteesSection() {
 
   return (
     <section id='trustees' className="py-16 px-6 lg:px-20 bg-gray-50 min-h-screen">
-      <h2 className="text-3xl lg:text-4xl font-semibold text-center text-green-main mb-12">Board of Trustees</h2>
+      <motion.h2
+        className="text-3xl sm:text-4xl font-bold text-green-main tracking-wider text-center mb-6 lg:mb-10"
+        initial={{ y: 30, opacity: 0 }}
+        whileInView={{ y: 0, opacity: 1 }}
+        transition={{ delay: 0.1, duration: 0.6 }}
+        viewport={{ once: true }}
+      >
+        Board of Trustees
+      </motion.h2>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 justify-items-center">
         {trustees.map((trustee) => (

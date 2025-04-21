@@ -45,7 +45,7 @@ export default function TrusteesSection() {
       {selectedTrustee && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-70 px-2 sm:px-4 py-4">
           <motion.div
-            className="  bg-white w-full max-w-3xl sm:max-w-4xl rounded-lg relative shadow-xl max-h-[90vh] overflow-hidden"
+            className="  bg-white w-full max-w-3xl sm:max-w-4xl rounded-lg  h-full relative shadow-xl max-h-screen overflow-hidden"
             initial={{ scale: 0.8, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{ duration: 0.3 }}
@@ -57,8 +57,8 @@ export default function TrusteesSection() {
             >
               <h1 onClick={() => setSelectedTrustee(null)}>&times;</h1>
             </button>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 h-full">
+            {/* modal */}
+            <div className="grid grid-cols-1 md:grid-cols-2 h-full ">
               {/* Image Section */}
               <div className="h-56 md:h-full w-full">
                 <Image
@@ -85,7 +85,7 @@ export default function TrusteesSection() {
                   className="overflow-y-auto mt-4 pr-1 sm:pr-2"
                   style={{
                     maxHeight: "calc(60vh - 2rem)", // Adjust maxHeight to fit in screen space
-                    paddingBottom: "1rem",
+                    paddingBottom: "7rem",
                   }}
                 >
                   <p className="text-gray-700 text-sm sm:text-base leading-relaxed whitespace-pre-line">

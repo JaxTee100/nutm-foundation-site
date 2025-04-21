@@ -50,9 +50,10 @@ export default function AboutSection() {
       >
         Grantees
       </motion.h2>
-      <div className='flex flex-col lg:flex-row items-center justify-center gap-10 '>
-        {/* Image Section */}
-        <div className="w-full  lg:w-1/2 h-[300px] lg:h-[600px] relative overflow-hidden rounded-sm shadow-lg">
+
+      <div className="flex flex-col lg:flex-row items-center justify-center gap-10 w-full max-w-7xl">
+        {/* Video Section */}
+        <div className="w-full lg:w-1/2 aspect-video lg:aspect-[3/4] relative overflow-hidden rounded-sm shadow-lg min-h-[250px]">
           <video
             src="/nutm.mp4"
             autoPlay
@@ -61,16 +62,14 @@ export default function AboutSection() {
             playsInline
             className="absolute inset-0 w-full h-full object-cover"
           />
-          {/* Green overlay with opacity */}
           <div className="absolute inset-0 bg-green-600/40 z-10 pointer-events-none" />
-
-          {/* Optional: Gradient overlay for effect */}
           <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-black/20 to-transparent z-20 pointer-events-none" />
         </div>
-        {/* Text Content */}
-        <div className="w-full py-4 lg:w-1/2 text-center md:text-left h-[300px] lg:h-[600px] lg:mt-0 ">
+
+        {/* Text Section */}
+        <div className="w-full lg:w-1/2 text-center lg:text-left space-y-6">
           <motion.h2
-            className="text-2xl sm:text-3xl font-bold text-green-main mb-4 tracking-wider"
+            className="text-2xl sm:text-3xl font-bold text-green-main tracking-wider"
             initial={{ y: 30, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.3, duration: 0.8 }}
@@ -79,18 +78,16 @@ export default function AboutSection() {
           </motion.h2>
 
           <motion.div
-            className=" text-gray-700 text-sm sm:text-base leading-relaxed space-y-4 mb-6"
+            className="text-gray-700 text-sm sm:text-base leading-relaxed space-y-4"
             initial={{ y: 30, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.5, duration: 0.8 }}
           >
-            <p className='leading-8'>
-              Nigerian University of Technology and Management is a licensed independent higher institution focusing on excellence and quality education in STEM (Science, Technology, Engineering, Mathematics), Entrepreneurship and Management, and the development of innovative leaders to create impact. The University was conceived at the Aspen Leadership Institute by some Nigerian business leaders to address the greatest bottlenecks to African development.
-
+            <p>
+              Nigerian University of Technology and Management is a licensed independent higher institution focusing on excellence and quality education in STEM (Science, Technology, Engineering, Mathematics), Entrepreneurship and Management, and the development of innovative leaders to create impact.
             </p>
-
-            <p className='leading-8'>
-              NUTM will strive for excellence in technology and management, and become a hub for best-in-class learning and research. It will focus on areas in Science, Technology, Engineering, Mathematics, and Management in its academic offerings at the undergraduate, postgraduate, and doctoral levels. In the next 10 years, NUTM aspires to be among the top five universities in Africa, and the best in Nigeria and has a vision to be ranked within the top 50 universities globally.
+            <p>
+              NUTM will strive for excellence in technology and management, and become a hub for best-in-class learning and research. In the next 10 years, NUTM aspires to be among the top five universities in Africa, and the best in Nigeria and has a vision to be ranked within the top 50 universities globally.
             </p>
           </motion.div>
 
@@ -105,10 +102,8 @@ export default function AboutSection() {
             Visit NUTM Website
           </motion.a>
         </div>
-
       </div>
-
-
     </section>
+
   );
 }

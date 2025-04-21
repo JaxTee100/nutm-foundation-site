@@ -1,4 +1,4 @@
- "use client";
+"use client";
 
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -33,7 +33,7 @@ export default function Hero() {
     <MotionSection>
       <section
         id="hero"
-        className="relative min-h-screen flex items-center justify-center lg:justify-start text-white overflow-hidden px-6 sm:px-12 lg:px-16 pt-[100px] md:pt-[120px]"
+        className="relative min-h-screen flex items-center justify-center lg:justify-start text-white overflow-hidden px-4 sm:px-6 md:px-10 pt-[80px] sm:pt-[100px] md:pt-[120px]"
       >
         {/* ✅ Dynamic Background Image */}
         <motion.div
@@ -54,7 +54,7 @@ export default function Hero() {
         <div className="absolute inset-0 bg-green-950 opacity-50 z-0" />
 
         {/* Text Section */}
-        <div className="z-10 w-full max-w-7xl mx-auto px-4 md:px-6 flex flex-col items-center lg:items-start lg:text-left">
+        <div className="z-10 w-full max-w-6xl mx-auto flex flex-col items-center lg:items-start text-center lg:text-left px-2 sm:px-4 md:px-6">
           <AnimatePresence mode="wait">
             <motion.h1
               key={slides[currentSlide].text}
@@ -62,9 +62,9 @@ export default function Hero() {
               animate={{ x: 0, opacity: 1 }}
               exit={{ x: "100%", opacity: 0 }}
               transition={{ duration: 2.5 }}
-              className="text-3xl sm:text-4xl md:text-6xl font-bold mb-6 tracking-wide leading-snug sm:leading-tight"
+              className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6 tracking-wide leading-snug sm:leading-tight"
             >
-              <span className="text-green-main">
+              <span className="text-green-main block sm:inline">
                 {
                   slides[currentSlide].text
                     .split(" ")
@@ -72,7 +72,7 @@ export default function Hero() {
                     .join(" ")
                 }
               </span>{" "}
-              <span className="text-white">
+              <span className="text-white block sm:inline">
                 {
                   slides[currentSlide].text
                     .split(" ")
@@ -87,7 +87,7 @@ export default function Hero() {
         {/* Scroll Down Button */}
         <motion.a
           href="#mission"
-          className="absolute bottom-8 sm:bottom-10 left-1/2 transform -translate-x-1/2 w-12 h-12 sm:w-14 sm:h-14 flex justify-center items-center bg-white text-green-main rounded-full shadow-lg hover:bg-green-100 transition z-20"
+          className="absolute bottom-6 sm:bottom-8 left-1/2 transform -translate-x-1/2 w-10 h-10 sm:w-12 sm:h-12 flex justify-center items-center bg-white text-green-main rounded-full shadow-lg hover:bg-green-100 transition z-20"
           initial={{ y: 30, opacity: 0 }}
           animate={{ y: [0, -10, 0], opacity: 1 }}
           transition={{ delay: 1.2, duration: 2, repeat: Infinity }}
@@ -95,7 +95,7 @@ export default function Hero() {
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            className="h-6 w-6 sm:h-7 sm:w-7"
+            className="h-5 w-5 sm:h-6 sm:w-6"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"

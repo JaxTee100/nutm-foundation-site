@@ -108,7 +108,7 @@ export default function TrusteesSection() {
         transition={{ delay: 0.1, duration: 0.6 }}
         viewport={{ once: true }}
       >
-        Founder's Contact
+        Foundation's Contact
       </motion.h2>
       <div
         className={`mx-auto  gap-10 ${founders.length === 1

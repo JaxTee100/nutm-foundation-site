@@ -13,10 +13,11 @@ const impactCards = [
     description: 'Direct support provided for tuition, housing, and academic resources',
   },
   {
-    title: '6 Campus Projects Funded',
+    title: '🏫 6 Campus Projects Funded',
     description: 'Entrepreneurial ventures funded to solve problems across Africa',
   },
 ];
+
 
 export default function Impact() {
   return (

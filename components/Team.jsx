@@ -83,7 +83,7 @@ export default function TrusteesSection() {
 
                 {/* Bio */}
                 <div
-                  className="overflow-y-auto mt-4 pr-1 sm:pr-2"
+                  className="overflow-y-auto mt-4 pr-1 sm:pr-2 border border-red-500"
                   style={{
                     maxHeight: "calc(60vh - 2rem)", // Adjust maxHeight to fit in screen space
                     paddingBottom: "7rem",

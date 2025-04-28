@@ -23,9 +23,9 @@ export default function Footer() {
         <div className="space-y-3 animate-slide-up flex flex-col items-center lg:items-start">
           <h4 className="font-semibold text-lg">Quick Links</h4>
           <ul className="space-y-2 text-sm">
-            <li><Link href="#" className="hover:text-green-300 transition-colors">About Us</Link></li>
-            <li><Link href="#" className="hover:text-green-300 transition-colors">Programs</Link></li>
-            <li><Link href="#" className="hover:text-green-300 transition-colors">Contact</Link></li>
+            <li><Link href="https://nutm.edu.ng/" target="_blank" className="hover:text-green-300 transition-colors">Main Site</Link></li>
+            <li><Link href="http://nutm.edu.ng/donate"target="_blank" className="hover:text-green-300 transition-colors">Donate</Link></li>
+      
           </ul>
         </div>
 

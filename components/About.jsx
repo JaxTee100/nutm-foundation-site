@@ -104,7 +104,7 @@ export default function AboutSection() {
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.5, duration: 0.8 }}
           >
-            <p className=" leading-5 lg:leading-8 text-justify">
+            <p className=" leading-5 lg:leading-8 text-justify ">
               Nigerian University of Technology and Management is a licensed independent higher institution focusing on excellence and quality education in STEM (Science, Technology, Engineering, Mathematics), Entrepreneurship and Management, and the development of innovative leaders to create impact. The University was conceived at the Aspen Leadership Institute by some Nigerian business leaders to address the greatest bottlenecks to African development.
 
             </p>

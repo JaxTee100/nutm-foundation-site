@@ -72,20 +72,20 @@ export default function AboutSection() {
         Grantees
       </motion.h2>
 
-      <div className="flex flex-col lg:flex-row justify-center gap-10 w-full max-w-7xl">
+      <div className="flex flex-col lg:flex-row justify-center  gap-10 w-full max-w-7xl">
         {/* Video Section */}
-        <div className="w-full lg:w-1/2 aspect-video lg:aspect-[3/4] relative overflow-hidden rounded-sm shadow-lg min-h-[250px]">
-          <video
-            ref={videoRef}
-            src="/nutm.mp4"
-            loop
-            playsInline
-            controls
-            className="absolute inset-0 w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-green-600/40 z-10 pointer-events-none" />
+        <div className="w-full lg:w-1/2 h-[500px] relative overflow-hidden rounded-sm shadow-lg">
+          <iframe
+            src="https://www.youtube.com/embed/NQfQTetBArY"
+            title="NUTM YouTube Video"
+            className="w-full h-full"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+          ></iframe>
           <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-black/20 to-transparent z-20 pointer-events-none" />
         </div>
+
+
 
         {/* Text Section */}
         <div className="w-full lg:w-1/2  lg:text-left space-y-6">
@@ -99,7 +99,7 @@ export default function AboutSection() {
           </motion.h2>
 
           <motion.div
-            className="text-gray-700 text-sm sm:text-base lg:text-lg  space-y-4"
+            className="text-gray-700 text-sm sm:text-base lg:text-md  space-y-2"
             initial={{ y: 30, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.5, duration: 0.8 }}

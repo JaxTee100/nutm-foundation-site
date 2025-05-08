@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 
 const impactCards = [
   {
-    title: '$100k+ in Scholarships',
+    title: '💰 $100k+ in Scholarships',
     description: 'Supporting students from all over Africa to access a world class education',
   },
   {
